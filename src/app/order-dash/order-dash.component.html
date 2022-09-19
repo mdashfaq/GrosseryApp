@@ -1,0 +1,136 @@
+<nav class="navbar navbar-light fw-bold" style="background-color: yellow;">
+    <!nav class="navbar navbar-light fw-bold" style="background-color: #e3f2fd;">
+      <!nav class="navbar navbar-light bg-primary">
+        <div class="container-fluid">
+          <h1 style="text-align:center">Golden Agencies and Distributor, Gulbarga</h1>
+          <button routerLink="/login" class="btn btn-danger mx-3">Logout</button>
+        </div>
+  </nav>
+  <! -- Jumbotron -->
+    <div class="p-3 mb-2 bg-info text-white">
+      <div class="container-fluid py-5">
+        <h1 class="display-5">Our Ordering Application welcomes you!</h1><br>
+        <div class="d-flex">
+          <button type="button" (click)="clickAddOrder()" class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Place Your Order</button>
+        </div>
+      </div>
+    </div><br>
+  
+  
+    <! -- Table Code is present below -->
+      <table class="table mt-4">
+        <thead>
+          <tr>
+            <th scope="col">Order No</th>
+            <th scope="col">Salesman</th>
+            <th scope="col">Product Code</th>
+            <th scope="col">Units Required</th>
+            <th scope="col">Effective Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ord of orderData | orderBy:['effectivedate', 'productcode', 'salesman']">
+            <td>{{ord.id}}</td>
+            <td>{{ord.salesman}}</td>
+            <td>{{ord.productcode}}</td>
+            <td>{{ord.units}}</td>
+            <td>{{ord.effectivedate}}</td>
+            <td>
+              <button (click)="onEdit(ord)" type="button" class="btn btn-info" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Update</button>&nbsp;
+              <button (click)="deleteOrder(ord)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch demo modal
+    </button> -->
+  
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+  
+              <form [formGroup]="formValue" class="needs-validation" id="forms">
+                <div class="mb-3">
+                  <label for="validationCustom01" class="form-label">Salesman</label>
+                  <input type="text" class="form-control" placeholder="Enter Salesman Name" formControlName="salesman">
+                  <div class="form-label">Enter the field Salesman</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Product Code</label>
+                  <select formControlName="productcode" class="form-select" aria-label="Default select example">
+                    <option value="Milk-X1">Milk-X1</option>
+                    <option value="Milk-X2">Milk-X2</option>
+                    <option value="Curd-X1">Curd-X1</option>
+                    <option value="Curd-X2">Curd-X2</option>
+                    <option value="Honey-X1">Honey-X1</option>
+                    <option value="Honey-X2">Honey-X2</option>
+                    <option value="Dates-X1">Dates-X1</option>
+                    <option value="Dates-X2">Dates-X2</option>
+                    <option value="Tea-X1">Tea-X1</option>
+                    <option value="Tea-X2">Tea-X2</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Units Required</label>
+                  <input type="text" class="form-control" placeholder="Enter Quantities" formControlName="units">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Effective Date</label>
+                  <input type="date" class="form-control" formControlName="effectivedate">
+                </div>
+              </form>
+  
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" *ngIf="showAdd" (click)="postOrderDetails()" class="btn btn-primary">Add
+                Order</button>
+              <button type="button" *ngIf="showUpdate" (click)="updateOrderDetails()" class="btn btn-warning">Update
+                Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <! -- Jumbotron 2 -->
+        <div class="p-1 mb-1 text-white" style="background-color: #FFE4C4;">
+          <div class="container-fluid py-4">
+            <p style="color:black">Copyright ©2022 Golden Agencies All rights reserved.!<br>
+              Website Powered by Mohammed Ashfaq</p>
+          </div>
+        </div>
+  
+        
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('Submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })();
+  </script>

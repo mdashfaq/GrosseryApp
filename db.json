@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "salesman": "Mohammed Ashfaq",
+      "productcode": "0525",
+      "units": "99",
+      "effectivedate": "2022-09-17"
+    },
+    {
+      "id": 2,
+      "salesman": "abc",
+      "productcode": "Milk-X2",
+      "units": "5",
+      "effectivedate": "2022-09-19"
+    }
+  ],
+  "signup": [
+    {
+      "email": "mdashfaq",
+      "password": "1234"
+    }
+  ]
+}

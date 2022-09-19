@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light fw-bold" style="background-color: yellow;">
+    <!nav class="navbar navbar-light fw-bold" style="background-color: #e3f2fd;">
+      <!nav class="navbar navbar-light bg-primary">
+        <div class="container-fluid">
+          <h1 style="text-align:center">Golden Agencies and Distributor, Gulbarga</h1>
+        </div>
+  </nav>
+  
+  <div class="component">
+      <div class="row"></div>
+          <div class="col-md-5">
+              <div class="card">
+                  <div class="text-center"> 
+                      <h1>Order Application</h1>
+                      <h5>Login to access our services</h5><hr>
+                  </div>
+                  <form [formGroup]="loginForm" (ngSubmit)="logIn()"> 
+                      <div class="mb-3">
+                        <label>Email address</label>
+                        <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">                    </div>
+                      <div class="mb-3">
+                        <label>Password</label>
+                        <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+              </div>
+          </div>
+  </div>
+  
+  <! -- Jumbotron -->
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="p-1 mb-1 text-white" style="background-color: #FFE4C4;">
+    <div class="container-fluid py-4">
+      <p style="color:black">Copyright ©2022 Golden Agencies All rights reserved.!<br>
+        Website Powered by Mohammed Ashfaq</p>
+    </div>
+  </div>
